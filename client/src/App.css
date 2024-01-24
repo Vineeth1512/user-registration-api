@@ -1,0 +1,68 @@
+body{
+  font-family: Arial, sans-serif;
+}
+
+.user-register-wrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 250px;
+  background-color: rgb(148, 194, 243);
+}
+.link-btn{
+  text-decoration: none;
+  background-color: rgb(45, 176, 219);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+.view-btn{ 
+  text-decoration: none;
+  background-color: rgb(45, 176, 219);
+  color: #fff;
+  padding: 5px 10px;
+  margin: 2px;
+  border-radius: 5px;
+
+}
+.edit-btn{
+  
+  text-decoration: none;
+  background-color: rgb(58, 58, 215);
+  color: #fff;
+  padding: 5px 10px;
+  margin: 2px;
+  border-radius: 5px;
+}
+.delete-btn{
+  
+  text-decoration: none;
+  background-color: rgb(219, 45, 65);
+  color: #fff;
+  padding: 5px 10px;
+  margin: 2px;
+  border-radius: 5px;
+}
+
+.table-wrapper{
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow:5px 5px 5px 5px whitesmoke;
+  text-align: center;
+  border-end-end-radius: 10px;
+  border-end-start-radius: 10px;
+}
+table{
+  width: 100%;
+  border-radius: 10px;
+  border-spacing:0 20px;
+}
+tr{
+  margin: 10px;
+  padding: 10px;
+}
+.table-wrapper table tr th{
+  margin: 10px;
+  padding: 10px;
+}

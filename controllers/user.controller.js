@@ -1,11 +1,11 @@
-const User =require("../models/user.model");
+const User = require("../models/user.model");
 const bcrypt = require("bcrypt")
 module.exports.signup = async (req, res) => {
     try {
-        const { email, name, mobileNo, password } = req.body;
+        const { email, name, password } = req.body;
         //Checking if all fields are present
 
-        if (!email || !password || !name || !mobileNo) {
+        if (!email || !password || !name) {
             return res.status(400).json({
                 message: "All fields are required",
             });
@@ -18,12 +18,12 @@ module.exports.signup = async (req, res) => {
         }
         //Hashing the password
         const hashedPassword = await bcrypt.hash(password, 10);
-       // console.log(hashedPassword);
+        // console.log(hashedPassword);
         const currentUser = await User.create({
             email: email,
             password: hashedPassword,
-            name:name,
-            mobileNo: mobileNo
+            name: name,
+
         })
         //Sending response
         return res.status(200).json({
@@ -41,7 +41,7 @@ module.exports.signup = async (req, res) => {
 };
 
 module.exports.login = async (req, res) => {
-    const {email,password}=req.body;
+    const { email, password } = req.body;
     try {
         if (!email || !password) {
             return res.status(400).json({
@@ -74,3 +74,16 @@ module.exports.login = async (req, res) => {
         })
     }
 }
+module.exports.getAllUser = async (req, res) => {
+    try {
+        const users = await User.find();
+        return res.status(200).json({
+            users: users
+        })
+
+    } catch (err) {
+        console.log(err);
+    }
+
+}
+
