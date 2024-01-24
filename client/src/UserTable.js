@@ -7,7 +7,8 @@ function UserTable() {
     const { id } = useParams();
     const loadUsers = async () => {
         axios.get("https://user-registration-api-omega.vercel.app/user/users").then((response) => {
-            setUser(response.data);
+            setUser(response.data.users);
+            console.log(response.data)
         })
 
     }
@@ -37,21 +38,21 @@ function UserTable() {
                             <th>UserId</th>
                             <th>UserName</th>
                             <th>EmailId</th>
-                            <th>Password</th>
+                          
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         {user.map((user, i) => {
                             return <tr key={i}>
-                                <td>{user.userId}</td>
+                                <td>{user._id}</td>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
-                                <td>{user.password}</td>
+                               
                                 <td>
                                     <Link className='view-btn' to={"/viewUser"}>View</Link>
                                     <Link className='edit-btn' to={`/editUser/${user.userId}`} >Edit</Link>
-                                    <button onClick={()=>deleteUsers(user.userId)} className='delete-btn'>Delete</button>
+                                    <button onClick={()=>deleteUsers(user._id)} className='delete-btn'>Delete</button>
                                 </td>
                             </tr>
 
