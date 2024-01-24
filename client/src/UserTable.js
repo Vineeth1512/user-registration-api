@@ -6,7 +6,7 @@ function UserTable() {
     const [user, setUser] = useState([]);
     const { id } = useParams();
     const loadUsers = async () => {
-        axios.get("http://localhost:8080/users").then((response) => {
+        axios.get("https://user-registration-api-omega.vercel.app/user/users").then((response) => {
             setUser(response.data);
         })
 
@@ -15,7 +15,7 @@ function UserTable() {
     const deleteUsers = async (id) => {
         const isConfirmed = window.confirm("Confirm to delete?");
         if(isConfirmed){
-        axios.delete(`http://localhost:8080/users/${id}`)
+        axios.delete(`https://user-registration-api-omega.vercel.app/user/delete/${id}`)
         .then(response => {
             console.log('Response:', response);
             loadUsers();
